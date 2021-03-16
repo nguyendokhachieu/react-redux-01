@@ -6,6 +6,7 @@ How to connect react with redux:
   
   5. import { connect } from react-redux in .js file that wants to connect to store to get state
   6. use connect()() and then export default connect()()
+  7. from one .js file can export props to another .js file (not recommended)
 
 look at example below:
 
@@ -23,21 +24,8 @@ class App extends Component {
   render() {
     console.log(this.props.appState);
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        
       </div>
     );
   }
