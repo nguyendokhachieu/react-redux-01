@@ -2,11 +2,11 @@ import logo from './logo.svg';
 import './App.css';
 import { connect } from 'react-redux';
 import { Component } from 'react';
+import Test from './Test';
 
 class App extends Component {
   
   render() {
-    console.log(this.props.appState);
     return (
       <div className="App">
         <header className="App-header">
@@ -28,10 +28,19 @@ class App extends Component {
   }
 }
 
+// methods to map state from store to props in component
 const mapStateToProps = state => {
   return {
-    appState: state
+    testState: state
   }
 }
 
-export default connect(mapStateToProps, null)(App);
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    handleChangeName: () => {
+      dispatch({type: 'CHANGE_NAME', name: 'hieu nguyen'})
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Test);
