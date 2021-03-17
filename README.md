@@ -31,10 +31,23 @@ class App extends Component {
   }
 }
 
+// call for states in store in redux and insert them into values of a Props in Component
 const mapStateToProps = state => {
   return {
     appState: state
   }
 }
 
-export default connect(mapStateToProps, null)(App);
+// call for a dispatch action to do the change to the states in store
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+    handleChangeStateX: () => {
+      dispatch({type: 'TYPE_DEFINED', ...})
+    }
+  }
+}
+
+// after: Component named <App> will have 2 props: appState, handleChangeStateX
+// we call appState and handleChangeStateX in App component by using 'this.props.appState' and 'this.props.handleChangeStateX()' [because handleChangeStateX is a function]
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
